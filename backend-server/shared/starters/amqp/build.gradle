@@ -1,6 +1,21 @@
 plugins {
   id 'java-library'
 }
+tasks.register('wrapper', Wrapper) {
+  gradleVersion = '7.2'
+}
+tasks.register("prepareKotlinBuildScriptModel"){}
+allprojects {
+  group = "com.apitable"
+
+  repositories {
+    maven {
+      url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenLocal()
+    mavenCentral()
+  }
+}
 
 dependencies {
   implementation(rootProject.ext.dependencies['boot-starter'])

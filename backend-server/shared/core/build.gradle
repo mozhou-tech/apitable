@@ -2,8 +2,22 @@ plugins {
   id 'java'
   id 'testing.java-conventions'
 }
-
+tasks.register('wrapper', Wrapper) {
+  gradleVersion = '7.2'
+}
+tasks.register("prepareKotlinBuildScriptModel"){}
 description = "Core"
+allprojects {
+  group = "com.apitable"
+
+  repositories {
+    maven {
+      url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenLocal()
+    mavenCentral()
+  }
+}
 
 dependencies {
   implementation rootProject.ext.dependencies['spring-web']

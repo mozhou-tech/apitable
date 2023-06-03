@@ -1,6 +1,17 @@
 plugins {
   id 'java-library'
 }
+allprojects {
+  group = "com.apitable"
+
+  repositories {
+    maven {
+      url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenLocal()
+    mavenCentral()
+  }
+}
 
 dependencies {
   implementation(rootProject.ext.dependencies['boot-starter'])

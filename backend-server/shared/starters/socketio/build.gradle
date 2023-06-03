@@ -1,9 +1,21 @@
- plugins {
-  id 'java-library'
+plugins {
+    id 'java-library'
 }
+allprojects {
+    group = "com.apitable"
+
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
 dependencies {
-  implementation(rootProject.ext.dependencies['boot-starter'])
-  implementation(rootProject.ext.dependencies['socket-io'])
-  implementation(rootProject.ext.dependencies['slf4j'])
-  implementation(rootProject.ext.dependencies['hutool'])
+    implementation(rootProject.ext.dependencies['boot-starter'])
+    implementation(rootProject.ext.dependencies['socket-io'])
+    implementation(rootProject.ext.dependencies['slf4j'])
+    implementation(rootProject.ext.dependencies['hutool'])
 }
